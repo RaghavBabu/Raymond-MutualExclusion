@@ -1,0 +1,34 @@
+Raymond
+
+Compile: 
+javac *.java
+
+Run:
+java Process PROCESS_ID TOTAL_PROCESS NO_OF_CHILDS
+
+Functionalities:
+
+Reads all processes IP addresses and port from XML file.
+
+Raymond algorithm is initiated only after all the processes are started.
+
+Only one process can use the critical section at a point of time.
+Mutual exclusion between processes is implemented.
+
+Developed an N-ary tree based on the number of childs in each process. Each process knows only about its neighbor. It knows who is the current holder of the token among its neighboring processes.
+
+Tree will vary based on the no-of-childs input.
+
+Critical section can be in released, wanted or held state.
+
+Initially root node is the token holder. all the leaf nodes send request to the parent node to acquire the token. 
+Requests are queued in process and access to critical section is given in the order in which it is received.
+
+Once the process receives the token it can enter the critical section.Once it is done, it sends token to the process in the head of the queue. In this manner, there is no starvation among processes and all processes acquires the critical section.
+
+Token Requester thread runs in each thread which sleeps for random time and tries to acquire the critical section if the process in released state.
+
+Printed the CS acquired and released time in a file which can be used for comparison. No two processes will be in critical section at the same time.
+
+Handled all failure cases and the process runs infinitely acquiring and releasing CS.
+
